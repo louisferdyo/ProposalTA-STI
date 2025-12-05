@@ -1,6 +1,7 @@
 \babel@toc {indonesian}{}\relax 
-\contentsline {chapter}{DAFTAR GAMBAR}{iv}{figure.caption.1}%
-\contentsline {chapter}{DAFTAR TABEL}{v}{figure.caption.1}%
+\contentsline {chapter}{DAFTAR GAMBAR}{iii}{figure.caption.1}%
+\contentsline {chapter}{DAFTAR TABEL}{iv}{figure.caption.1}%
+\contentsline {chapter}{\centering \normalsize DAFTAR KODE}{v}{chapter*.2}%
 \contentsline {chapter}{\numberline {I}PENDAHULUAN}{1}{chapter.1}%
 \contentsline {section}{\numberline {I.1}Latar Belakang}{1}{section.1.1}%
 \babel@toc {english}{}\relax 
@@ -118,8 +119,8 @@
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \contentsline {section}{\numberline {II.4}Dataset Satwa}{13}{section.2.4}%
-\contentsline {section}{\numberline {II.5}Literatur Terkait}{13}{section.2.5}%
-\contentsline {subsection}{\numberline {II.5.1}Penerapan Pengenalan Wajah pada Primata: Studi Kasus LemurFaceID}{13}{subsection.2.5.1}%
+\contentsline {section}{\numberline {II.5}Literatur Terkait}{14}{section.2.5}%
+\contentsline {subsection}{\numberline {II.5.1}Penerapan Pengenalan Wajah pada Primata: Studi Kasus LemurFaceID}{14}{subsection.2.5.1}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
