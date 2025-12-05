@@ -1,6 +1,8 @@
 %! TEX program = xelatex
 % 
-% Template Proposal Tugas Akhir
+% Versi 1.1
+%
+% Template Proposal Tugas Akhir 
 % Program Studi Sistem dan Teknologi Informasi
 % Sekolah Teknik Elektro dan Informatika
 % Institut Teknologi Bandung
@@ -203,111 +205,14 @@
 % ==========================================
 % HALAMAN JUDUL
 % ==========================================
-\begin{titlepage}
-\begin{center}
-
-    
-    \vspace*{2cm}
-    
-    {\Large\bfseries PERANCANGAN SISTEM INFORMASI AKADEMIK BERBASIS WEB}\\
-     \vspace{4cm}
-
-    {\Large \textbf{Proposal Tugas Akhir}}\\
-
-
-    \vspace{2cm}
-    
-    
-    {\large Oleh}\\[0.3cm]
-    \textbf{
-    {\large John Doe}\\
-    {\large 18299000}
-    }\\
-
-    \vspace{2cm}
-    
-    \begin{figure}[h]
-    \centering
-    \includegraphics[width=0.2\textwidth]{image/ganesha.jpg}
-    \end{figure}
-    
-    
-    % \vspace{1cm}
-    \vfill
-
-    \textbf{
-    {\large PROGRAM STUDI SISTEM DAN TEKNOLOGI INFORMASI}\\
-    {\large SEKOLAH TEKNIK ELEKTRO DAN INFORMATIKA}\\
-    {\large INSTITUT TEKNOLOGI BANDUNG}\\
-    {\large \DTMlangsetup{showdayofmonth=false,showmonthname=true,showyear=true}\today}
-    }
-\end{center}
-\end{titlepage}
+\input{Halaman Judul.tex}
 
 
 
 % ==========================================
 % LEMBAR PENGESAHAN 
 % ==========================================
-\newpage
-\thispagestyle{empty}
-\pagenumbering{gobble}
-\begin{center}
-  \textbf{\large LEMBAR PENGESAHAN}\\[1cm]
-  \vspace*{1.5cm}
-    
-  {\large\bfseries PERANCANGAN SISTEM INFORMASI AKADEMIK BERBASIS WEB}\\
-     \vspace{2cm}
-
-  {\Large \textbf{Proposal Tugas Akhir}}\\
-
-
-  \vspace{1.5cm}
-    
-    
-  {\large Oleh}\\[0.3cm]
-    \textbf{
-    {\large John Doe}\\
-    {\large 18299000}
-  }\\
-    
-  \vspace{0.5cm}
- 
-  {\large Program Studi Sistem dan Teknologi Informasi}\\
-  {\large Sekolah Teknik Elektro dan Informatika}\\
-  {\large Institut Teknologi Bandung}\\
-
-  \vspace{1.5cm}
-
-  Proposal Tugas Akhir ini telah disetujui dan disahkan\\ 
-  di Bandung, pada tanggal \today\\[1cm]
-
-% ==========================================
-% Versi 1 pembimbing (default)
-% ==========================================
-	Pembimbing  \\[3cm]
-	Dr. Ir. John Doe, M.T.   \\[0.2cm]
-	NIP. 123456789 
-% ==========================================
-
-\end{center}
-
-\vspace{1cm}
-\noindent
-
-% ==========================================
-% Jika ada 2 pembimbing TA, uncomment dan edit 
-% tabular di bawah ini. Kemudian, comment out atau hapus
-% bagian versi 1 pembimbing di atas.
-% ==========================================
-
-%\begin{tabular}{p{1cm}p{7cm}p{7cm}}
-%   & Pembimbing 1 & Pembimbing 2 \\[3cm]
-%   & Dr. Ir. John Doe, M.T. & Dr. Mary Doe, M.Sc. \\[0.2cm]
-%   &  NIP. 123456789 & NIP. 987654321
-%\end{tabular}
-
-
+\input{Halaman Pengesahan.tex}
 
 % -- Change page number style to roman ---
 \pagenumbering{roman} 
@@ -317,43 +222,16 @@
 % DAFTAR ISI, TABEL, GAMBAR
 % ==========================================
 % --- DAFTAR ISI ---
-\makeatletter
-\renewcommand{\tableofcontents}{%
-  \clearpage
-  \thispagestyle{plain}% no header
-  \begin{center}
-    {\large\bfseries\MakeUppercase{\contentsname}\par}
-  \end{center}
-  \vskip 1em
-  \@starttoc{toc}%
-}
-\makeatother
-
-\newpage
-\renewcommand{\cfttoctitlefont}{\hfill\large\bfseries\MakeUppercase}
-\renewcommand{\cftaftertoctitle}{\hfill}
-\tableofcontents
-%\addcontentsline{toc}{chapter}{DAFTAR ISI}
+\input{Daftar Isi.tex}
 
 % --- DAFTAR GAMBAR ---
-\newpage
-\renewcommand{\cftloftitlefont}{\hfill\large\bfseries\MakeUppercase}
-\renewcommand{\cftafterloftitle}{\hfill}
-\listoffigures
-\addcontentsline{toc}{chapter}{DAFTAR GAMBAR}
+\input{Daftar Gambar.tex}
 
 % --- DAFTAR TABEL ---
-\newpage
-\renewcommand{\cftlottitlefont}{\hfill\large\bfseries\MakeUppercase}
-\renewcommand{\cftafterlottitle}{\hfill}
-\listoftables
-\addcontentsline{toc}{chapter}{DAFTAR TABEL}
+\input{Daftar Tabel.tex}
 
 % --- DAFTAR LISTING (ALGORITMA, PSEUDOCODE, SOURCE CODE) ---
-\newpage
-
-\lstlistoflistings
-\addcontentsline{toc}{chapter}{\lstlistlistingname}
+\input{Daftar Listing.tex}
 
 \mainmatter
 % --- FORMAT TAMPILAN JUDUL BAB, SUBBAB, JUDUL GAMBAR DAN TABEL ---
