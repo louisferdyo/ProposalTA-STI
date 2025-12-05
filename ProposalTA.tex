@@ -1,13 +1,13 @@
 %! TEX program = xelatex
-% 
+%
 % Template Proposal Tugas Akhir
 % Program Studi Sistem dan Teknologi Informasi
 % Sekolah Teknik Elektro dan Informatika
 % Institut Teknologi Bandung
-% 
-% Dibuat oleh: IGB Baskara Nugraha 
-% Email: baskara@itb.ac.id 
-% 
+%
+% Dibuat oleh: IGB Baskara Nugraha
+% Email: baskara@itb.ac.id
+%
 % Last updated: 20 Oktober 2025
 %
 % Petunjuk penggunaan:
@@ -17,10 +17,10 @@
 % 4. Simpan kedua file tersebut dalam satu folder yang sama.
 % 5. Kompilasi file ProposalTA.tex menggunakan XeLaTeX dan Biber (lihat urutan cara kompilasi di bawah).
 % 6. Hasil kompilasi adalah file ProposalTA.pdf yang siap dicetak.
-% 
+%
 % Urutan cara kompilasi (melalui command line):
 % 1. xelatex ProposalTA.tex
-% 2. biber ProposalTA      
+% 2. biber ProposalTA
 % 3. xelatex  ProposalTA.tex
 % 4. xelatex  ProposalTA.tex
 %
@@ -30,7 +30,7 @@
 % - Gunakan editor LaTeX yang mendukung XeLaTeX, seperti TeXstudio, Overleaf, atau lainnya.
 % - Jika meenggunakan Visual Studio Code sebagai editor, pastikan mengatur "latex-workshop.latex.tools" dan
 %   "latex-workshop.latex.recipes" untuk mendukung XeLaTeX dan Biber dengan cara menambahkan konfigurasi berikut:
-%   "latex-workshop.latex.tools": [ 
+%   "latex-workshop.latex.tools": [
 %       {
 %           "name": "xelatex",
 %           "command": "xelatex",
@@ -97,7 +97,9 @@
 \usepackage{longtable}
 \usepackage{booktabs}
 \usepackage[bahasai]{datetime2}
-
+\usepackage{tabularx}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{float}
 
 \setcounter{tocdepth}{4} % kedalaman daftar isi sampai subsubbab
 \setcounter{secnumdepth}{4} % kedalaman penomoran sampai subsubbab
@@ -163,7 +165,7 @@
 
 % --- Ubah nama daftar listing ke "DAFTAR KODE" ---
 % --- Harus diletakkan sebelum \begin{document} ---
-\renewcommand{\lstlistlistingname}{\centering\normalsize DAFTAR KODE} 
+\renewcommand{\lstlistlistingname}{\centering\normalsize DAFTAR KODE}
 \renewcommand{\lstlistingname}{Kode}
 \lstset{basicstyle=\ttfamily\footnotesize,breaklines=true}
 %\captionsetup[lstlisting]{justification=raggedright,singlelinecheck=false}
@@ -206,32 +208,32 @@
 \begin{titlepage}
 \begin{center}
 
-    
+
     \vspace*{2cm}
-    
-    {\Large\bfseries PERANCANGAN SISTEM INFORMASI AKADEMIK BERBASIS WEB}\\
+
+    {\Large\bfseries DETEKSI DAN PELACAKAN WAJAH KUKANG SUNDA UNTUK KONSERVASI PRIMATA DILINDUNGI}\\
      \vspace{4cm}
 
     {\Large \textbf{Proposal Tugas Akhir}}\\
 
 
     \vspace{2cm}
-    
-    
+
+
     {\large Oleh}\\[0.3cm]
     \textbf{
-    {\large John Doe}\\
-    {\large 18299000}
+    {\large Louis Ferdyo Gunawan}\\
+    {\large 18222022}
     }\\
 
     \vspace{2cm}
-    
+
     \begin{figure}[h]
     \centering
     \includegraphics[width=0.2\textwidth]{image/ganesha.jpg}
     \end{figure}
-    
-    
+
+
     % \vspace{1cm}
     \vfill
 
@@ -247,7 +249,7 @@
 
 
 % ==========================================
-% LEMBAR PENGESAHAN 
+% LEMBAR PENGESAHAN
 % ==========================================
 \newpage
 \thispagestyle{empty}
@@ -255,39 +257,39 @@
 \begin{center}
   \textbf{\large LEMBAR PENGESAHAN}\\[1cm]
   \vspace*{1.5cm}
-    
-  {\large\bfseries PERANCANGAN SISTEM INFORMASI AKADEMIK BERBASIS WEB}\\
+
+  {\large\bfseries DETEKSI DAN PELACAKAN WAJAH KUKANG SUNDA UNTUK KONSERVASI PRIMATA DILINDUNGI}\\
      \vspace{2cm}
 
   {\Large \textbf{Proposal Tugas Akhir}}\\
 
 
   \vspace{1.5cm}
-    
-    
+
+
   {\large Oleh}\\[0.3cm]
     \textbf{
-    {\large John Doe}\\
-    {\large 18299000}
+    {\large Louis Ferdyo Gunawan}\\
+    {\large 18222022}
   }\\
-    
+
   \vspace{0.5cm}
- 
+
   {\large Program Studi Sistem dan Teknologi Informasi}\\
   {\large Sekolah Teknik Elektro dan Informatika}\\
   {\large Institut Teknologi Bandung}\\
 
   \vspace{1.5cm}
 
-  Proposal Tugas Akhir ini telah disetujui dan disahkan\\ 
+  Proposal Tugas Akhir ini telah disetujui dan disahkan\\
   di Bandung, pada tanggal \today\\[1cm]
 
 % ==========================================
 % Versi 1 pembimbing (default)
 % ==========================================
 	Pembimbing  \\[3cm]
-	Dr. Ir. John Doe, M.T.   \\[0.2cm]
-	NIP. 123456789 
+	Dr. Fadhil Hidayat, S.Kom., M.T.   \\[0.2cm]
+  NIP. 198609252012121002
 % ==========================================
 
 \end{center}
@@ -296,7 +298,7 @@
 \noindent
 
 % ==========================================
-% Jika ada 2 pembimbing TA, uncomment dan edit 
+% Jika ada 2 pembimbing TA, uncomment dan edit
 % tabular di bawah ini. Kemudian, comment out atau hapus
 % bagian versi 1 pembimbing di atas.
 % ==========================================
@@ -310,7 +312,7 @@
 
 
 % -- Change page number style to roman ---
-\pagenumbering{roman} 
+\pagenumbering{roman}
 
 
 % ==========================================
@@ -352,8 +354,8 @@
 % --- DAFTAR LISTING (ALGORITMA, PSEUDOCODE, SOURCE CODE) ---
 \newpage
 
-\lstlistoflistings
-\addcontentsline{toc}{chapter}{\lstlistlistingname}
+% \lstlistoflistings
+% \addcontentsline{toc}{chapter}{\lstlistlistingname}
 
 \mainmatter
 % --- FORMAT TAMPILAN JUDUL BAB, SUBBAB, JUDUL GAMBAR DAN TABEL ---
@@ -384,7 +386,7 @@
 % --- Atur indentasi paragraf ---
 \setlength{\parindent}{0pt}
 % -- Change page number style to arabic ---
-\pagenumbering{arabic} 
+\pagenumbering{arabic}
 
 \input{Bab I - Pendahuluan.tex}
 \input{Bab II - Studi-Literatur.tex}
@@ -409,4 +411,3 @@
 % \input{Lampiran-B.tex}
 
 \end{document}
- 

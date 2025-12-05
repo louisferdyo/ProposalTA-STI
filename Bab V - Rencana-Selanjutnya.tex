@@ -3,9 +3,155 @@
 % ==========================================
 \chapter{RENCANA SELANJUTNYA}
 \label{chap:rencana-selanjutnya}
-Jelaskan secara detail langkah-langkah rencana selanjutnya, hal-hal yang diperlukan atau akan disiapkan, dan risiko dan mitigasinya, yang meliputi:
+
+Bab ini menjelaskan langkah-langkah rencana selanjutnya yang akan dilakukan dalam pelaksanaan tugas akhir, termasuk peralatan yang dibutuhkan, desain pengujian, serta analisis risiko dan mitigasinya.
+
+\section{Rencana Implementasi}
+
+\subsection{Linimasa Kegiatan}
+\input{table/gantt-chart.tex}
+
+\subsection{Lingkungan Pengembangan (\textit{Development Environment})}
+Untuk mendukung proses pelatihan model \textit{Deep Learning} dan pemrosesan citra, spesifikasi lingkungan komputasi yang digunakan adalah sebagai berikut:
+
 \begin{enumerate}
-\item	Rencana implementasi, termasuk alat dan bahan yang diperlukan, lingkungan, konfigurasi, biaya, dan sebagainya.
-\item	Desain pengujian dan evaluasi, misalnya metode verifikasi dan validasi.
-\item	Analisis risiko dan mitigasi, misalnya tindakan selanjutnya jika ada yang tidak berjalan sesuai rencana.
+    \item \textbf{Perangkat Keras Komputasi (\textit{Computational Hardware}):}
+    \begin{itemize}
+        \item \textit{Processing Unit}: Workstation dengan GPU NVIDIA (minimal VRAM 8GB) atau penggunaan layanan \textit{cloud computing} (seperti Google Colab Pro/RunPod) untuk akselerasi pelatihan model YOLO dan CNN.
+        \item \textit{Storage}: Penyimpanan SSD minimal 512GB untuk manajemen dataset video \textit{high-resolution}.
+        \item \textit{Memory}: RAM minimal 16GB untuk kelancaran proses pra-pemrosesan data (\textit{preprocessing}).
+    \end{itemize}
+    
+    \item \textbf{Perangkat Lunak (\textit{Software}):}
+    \begin{itemize}
+        \item \textbf{Sistem Operasi:} Windows 10/11 atau Linux (Ubuntu 20.04).
+        \item \textbf{Bahasa Pemrograman:} Python 3.9+ sebagai bahasa utama.
+        \item \textbf{Framework:} PyTorch atau TensorFlow untuk pengembangan model AI.
+        \item \textbf{Library Utama:} OpenCV (pengolahan citra/CLAHE), Ultralytics (YOLO), Pandas/NumPy (analisis data).
+        \item \textbf{Tools Anotasi:} LabelImg atau Roboflow untuk pelabelan \textit{bounding box} dan kelas ekspresi.
+    \end{itemize}
 \end{enumerate}
+
+\subsection{Alat dan Bahan (\textit{Tools and Materials})}
+Selain lingkungan komputasi, penelitian ini memerlukan perangkat keras khusus untuk akuisisi data di lapangan (kandang observasi) guna menjamin kualitas data pada kondisi nokturnal.
+
+\begin{enumerate}
+    \item \textbf{Perangkat Keras Pengambilan Data:}
+    \begin{itemize}
+        \item \textbf{Camera Trap Bushnell Core DS-4K (Dual Sensor) No Glow 32MP:} Digunakan sebagai alat perekam utama. Fitur \textit{No Glow} sangat krusial agar cahaya kamera tidak mengganggu atau memicu stres pada kukang yang sensitif cahaya. Resolusi 4K diperlukan untuk menangkap detail fitur wajah halus.
+        \item \textbf{Senter Infrared 940nm 10w IR:} Sumber pencahayaan tambahan tak kasat mata (spektrum 940nm tidak terlihat mata telanjang) untuk membantu kamera menangkap citra yang jelas tanpa mengubah perilaku alami satwa nokturnal.
+        \item \textbf{Fotometer Digital (Luxmeter Digital Light Meter Lux FC):} Digunakan untuk mengukur intensitas cahaya ambien di sekitar kandang, memastikan data diambil pada kondisi \textit{low-light} yang terukur dan konsisten.
+        \item \textbf{SNDWAY Digital Sound Level Meter:} Digunakan untuk memantau tingkat kebisingan lingkungan sekitar kandang, guna memastikan variabel stres pada kukang tidak disebabkan oleh polusi suara eksternal selama pengambilan data.
+    \end{itemize}
+    
+    \item \textbf{Bahan Data (\textit{Data Materials}):}
+    \begin{itemize}
+        \item Dataset Video CCTV (Data Sekunder) dari mitra konservasi.
+        \item Dataset Video Observasi Langsung (Data Primer) menggunakan Camera Trap.
+    \end{itemize}
+\end{enumerate}
+
+\subsection{Pengisian Surat Kode Etik Penelitian Hewan}
+Tahap pengisian surat kode etik penelitian hewan merupakan langkah penting sebelum proses pengumpulan data dan implementasi sistem dilakukan. Karena kukang (\textit{Nycticebus} sp.) termasuk satwa dilindungi dan tergolong hewan nokturnal dengan sensitivitas tinggi terhadap cahaya dan stres, penelitian ini wajib mengikuti prosedur etika penelitian hewan sesuai regulasi lembaga dan peraturan pemerintah terkait kesejahteraan satwa (\textit{animal welfare}).
+
+Pada tahap ini, peneliti menyiapkan dokumen administratif yang diperlukan untuk mendapatkan izin pelaksanaan penelitian dari Komisi Etik Penelitian Hewan atau lembaga setara. Pengisian surat kode etik mencakup beberapa informasi utama, seperti tujuan penelitian, metode pengambilan data, durasi penelitian, lokasi observasi, serta deskripsi lengkap mengenai perlakuan yang diberikan kepada hewan. Peneliti juga harus menjelaskan bahwa penelitian tidak melibatkan kontak fisik, tidak memberikan perlakuan invasif, dan tidak menyebabkan gangguan fisiologis maupun psikologis pada satwa.
+
+Selain itu, formulir kode etik juga harus memuat penilaian risiko terhadap hewan serta langkah mitigasi untuk menjamin kesejahteraan satwa selama proses penelitian. Hal ini meliputi pengaturan intensitas cahaya IR agar tidak mengganggu ritme biologis kukang, pengaturan jarak aman saat pengambilan gambar, serta memastikan proses observasi tidak mengubah pola perilaku alami.
+
+Setelah dokumen diisi lengkap, peneliti menyerahkan formulir tersebut kepada unit komite etik untuk dievaluasi. Penelitian hanya dapat dimulai setelah persetujuan etis diperoleh secara resmi. Tahap ini memastikan bahwa seluruh proses penelitian berlangsung sesuai standar etika, tidak menimbulkan efek negatif terhadap satwa, dan sejalan dengan prinsip 3R (\textit{Replacement, Reduction, Refinement}) dalam penelitian hewan.
+
+\subsection{Tahapan Implementasi}
+Proses implementasi akan dieksekusi melalui empat fase sekuensial:
+\begin{enumerate}
+    \item \textbf{Persiapan dan Akuisisi Data:} Instalasi Camera Trap dan sensor lingkungan di lokasi observasi, diikuti pengambilan data video. Data kemudian divalidasi kualitasnya menggunakan parameter dari Luxmeter.
+    \item \textbf{Pra-pemrosesan Data:} Pembersihan data, ekstraksi \textit{frame}, dan penerapan algoritma CLAHE untuk perbaikan kontras citra malam hari.
+    \item \textbf{Pengembangan dan Pelatihan Model:} Pelabelan data (\textit{annotation}), pelatihan model deteksi wajah (YOLO), dan pelatihan model klasifikasi ekspresi dengan strategi \textit{Transfer Learning}.
+    \item \textbf{Integrasi dan Pengujian:} Penyatuan modul deteksi dan klasifikasi, serta pengujian performa sistem terhadap data validasi.
+\end{enumerate}
+
+\subsection{Rencana Anggaran Biaya}
+Estimasi biaya yang diperlukan untuk pengadaan alat dan operasional penelitian disajikan pada Tabel dibawah.
+
+\begin{table}[H]
+\centering
+\caption{Rencana Anggaran Biaya Penelitian}
+\label{tab:anggaran_biaya}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{|l|X|r|}
+\hline
+\textbf{No} & \textbf{Item Kebutuhan} & \textbf{Estimasi Biaya (Rp)} \\ 
+\hline
+\multicolumn{3}{|l|}{\textbf{A. Perangkat Keras Pengambilan Data}} \\ 
+\hline
+1 & Camera Trap Bushnell Core DS-4K (Dual Sensor) No Glow 32MP & 8.000.000 \\ 
+\hline
+2 & Senter Infrared 940nm 10w IR & 385.000 \\ 
+\hline
+3 & Fotometer Digital (Luxmeter Digital Light Meter Lux FC) & 391.000 \\ 
+\hline
+4 & SNDWAY Digital Sound Level Meter & 490.000 \\ 
+\hline
+\multicolumn{3}{|l|}{\textbf{B. Operasional dan Komputasi}} \\ 
+\hline
+5 & Layanan Cloud Computing (GPU Rental/Colab Pro) & 1.500.000 \\ 
+\hline
+6 & Media Penyimpanan Eksternal (SD Card High Speed \& SSD) & 1.000.000 \\ 
+\hline
+7 & Biaya Tak Terduga (10\% dari total) & 1.176.600 \\ 
+\hline
+\multicolumn{2}{|r|}{\textbf{Total Estimasi Anggaran}} & \textbf{12.942.600} \\ 
+\hline
+\end{tabularx}
+\end{table}
+
+\section{Rencana Evaluasi}
+Evaluasi dilakukan untuk mengukur sejauh mana sistem memenuhi tujuan penelitian, baik dari sisi performa teknis maupun kegunaan praktis.
+
+\subsection{Metode Pengujian}
+Pengujian akan dilakukan menggunakan tiga pendekatan:
+\begin{enumerate}
+    \item \textbf{Pengujian Kinerja Model (\textit{Model Performance Testing}):}
+    Menggunakan dataset uji (\textit{test set}) yang tidak pernah dilihat model selama pelatihan. Metrik yang diukur meliputi:
+    \begin{itemize}
+        \item \textit{Precision, Recall,} dan \textit{F1-Score} untuk mengukur ketepatan klasifikasi ekspresi.
+        \item \textit{Mean Average Precision} (mAP@0.5) untuk mengukur akurasi lokalisasi wajah oleh YOLO.
+        \item \textit{Confusion Matrix} untuk menganalisis kesalahan prediksi antar kelas (misal: ekspresi 'Sakit' terdeteksi sebagai 'Netral').
+    \end{itemize}
+    
+    \item \textbf{Validasi Ahli (\textit{Expert Validation}):}
+    Membandingkan hasil prediksi sistem dengan anotasi manual (\textit{ground truth}) yang dilakukan oleh pakar perilaku hewan atau dokter hewan. Tingkat kesepakatan akan diukur untuk memvalidasi objektivitas sistem.
+    
+    \item \textbf{Pengujian Kotak Hitam (\textit{Black Box Testing}):}
+    Menguji fungsionalitas sistem secara keseluruhan (input-output) untuk memastikan fitur seperti unggah video, pemrosesan, dan penyimpanan hasil berjalan sesuai spesifikasi tanpa melihat kode internal.
+\end{enumerate}
+
+\subsection{Kriteria Keberhasilan}
+Penelitian ini dianggap berhasil apabila memenuhi indikator berikut:
+\begin{itemize}
+    \item Model deteksi wajah mampu mencapai mAP $\geq$ 85\% pada kondisi pencahayaan rendah (setelah CLAHE).
+    \item Model klasifikasi ekspresi mencapai akurasi keseluruhan $\geq$ 80\% pada data uji.
+    \item Sistem mampu memproses video dengan latensi yang dapat diterima (misal: < 1 detik per \textit{frame} pada GPU standar), memungkinkan analisis yang efisien.
+\end{itemize}
+
+\section{Analisis Risiko dan Mitigasi}
+Dalam pengembangan sistem ini, teridentifikasi sejumlah risiko potensial yang dapat menghambat keberhasilan proyek. Strategi mitigasi disusun untuk meminimalkan dampak risiko tersebut.
+
+\begin{table}[H]
+\centering
+\caption{Analisis Risiko dan Strategi Mitigasi}
+\label{tab:analisis_risiko}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{|l|X|X|}
+\hline
+\textbf{Kategori Risiko} & \textbf{Identifikasi Masalah} & \textbf{Strategi Mitigasi} \\ 
+\hline
+\textbf{Data} & \textbf{Kelangkaan Data (\textit{Data Scarcity}):} Jumlah sampel video kukang yang berkualitas mungkin sangat terbatas. & Menerapkan teknik augmentasi data sintetik (rotasi, \textit{mixup}, \textit{mosaic}) dan menggunakan \textit{Transfer Learning} dari model yang dilatih pada dataset wajah hewan lain. \\ 
+\hline
+\textbf{Kualitas Citra} & \textbf{Fitur Wajah Tidak Terlihat:} Pada kondisi \textit{night vision} ekstrem, fitur mata/mulut mungkin tertutup bayangan atau \textit{noise}. & Penerapan algoritma CLAHE (\textit{Contrast Limited Adaptive Histogram Equalization}) atau sejenisnya secara wajib pada tahap \textit{preprocessing} untuk menonjolkan detail lokal. \\ 
+\hline
+\textbf{Subjektivitas} & \textbf{Ambiguitas Label:} Pakar mungkin memiliki perbedaan pendapat dalam melabeli ekspresi "stres" vs "normal". & Melakukan validasi silang antar pakar (minimal 3 pakar) dan menggunakan sistem \textit{voting} mayoritas untuk menentukan label \textit{ground truth} yang valid. \\ 
+\hline
+\textbf{Teknis} & \textbf{Beban Komputasi Tinggi:} Model terlalu berat untuk dijalankan pada perangkat laptop standar petugas. & Menggunakan arsitektur model yang ringan (\textit{lightweight}) seperti YOLOv8-Nano atau MobileNet, serta menyediakan opsi pemrosesan berbasis \textit{cloud}. \\ 
+\hline
+\end{tabularx}
+\end{table}

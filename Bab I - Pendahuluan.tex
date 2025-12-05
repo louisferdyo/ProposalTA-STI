@@ -3,36 +3,86 @@
 % ==========================================
 \chapter{PENDAHULUAN}
 \label{chap:pendahuluan}
+
 % --- Latar Belakang ---
 \section{Latar Belakang}
-Latar Belakang menjelaskan dasar pemikiran, motivasi, kebutuhan, alasan, atau urgensi pemilihan masalah tugas akhir. Subbab ini berisi penjelasan ringkas tentang kondisi atau situasi yang ada saat ini terkait dengan topik yang dibahas. Tujuan utamanya adalah untuk memberikan informasi secukupnya kepada pembaca agar memahami topik yang akan dibahas. Dalam subbab ini, jelaskan hal-hal berikut ini:
-\begin{enumerate}
-\item	Kondisi atau situasi topik yang dibahas beserta permasalahannya, misalnya tentang pengelolaan informasi di puskesmas daerah pedesaan dan masalah yang dihadapi.
-\item	Berbagai solusi yang telah diterapkan atau solusi yang tersedia dan memungkinkan untuk diterapkan untuk menyelesaikan masalah tersebut.
-\end{enumerate}
 
+Upaya pelestarian keanekaragaman hayati di Indonesia menghadapi kompleksitas tinggi, terutama dalam menjaga populasi primata endemik seperti Kukang Sunda. Spesies ini tercatat dalam daftar merah International Union for Conservation of Nature (IUCN Red List) dengan status Endangered sejak tahun 2015 \autocite{iucn2020}. Populasinya dilaporkan menurun drastis disebabkan oleh hilangnya habitat, fragmentasi hutan, serta tekanan dari perdagangan ilegal sebagai hewan peliharaan maupun untuk kebutuhan obat dan tradisi \autocite{ksdae2023}.
+
+Meskipun informasi kuantitatif tentang ukuran populasi absolut sulit diperoleh karena sifat kukang yang nokturnal dan pemalu, penelitian dan laporan konservasi menunjukkan bahwa selama beberapa dekade terakhir terjadi penurunan populasi hingga sekitar 50\% dalam rentang waktu tiga generasi akibat deforestasi dan fragmentasi habitat \autocite{neprimate2024}.
+
+Selain ancaman dari perdagangan dan hilangnya habitat, Kukang Sunda menghadapi tekanan dari degradasi lingkungan yang menyebabkan fragmentasi hutan. Fragmentasi ini memutus ruang jelajah serta konektivitas antar populasi, padahal kukang sangat bergantung pada kanopi pohon untuk berpindah dari satu area ke area lain \autocite{mandai2023,plazi2024}.
+
+Secara ekologis, keberadaan Kukang Sunda memegang peran penting dalam menjaga fungsi hutan tropis. Sebagai primata nokturnal yang memakan buah, nektar, getah pohon, dan serangga, kukang berkontribusi pada penyebaran biji (seed dispersal), penyerbukan (pollination), serta pengendalian populasi serangga (insect control) \autocite{neprimate2024}. Kehadirannya membantu regenerasi vegetasi hutan dan menjaga kestabilan ekosistem, sehingga sangat vital bagi kelangsungan hutan dan keberagaman hayati \autocite{iar2024,neprimate2024}.
+
+Hilangnya kukang dari habitat alaminya dapat memicu ketidakseimbangan ekologis. Penurunan penyebaran biji dan penyerbukan tanaman dapat menghambat regenerasi hutan, yang pada gilirannya menurunkan daya dukung lingkungan. Selain itu, hilangnya pengendali alami serangga dapat menyebabkan ledakan populasi hama yang merugikan pertanian dan tanaman lokal, memberikan dampak negatif tidak hanya pada ekosistem, tetapi juga pada manusia. Banyak lembaga konservasi menyatakan bahwa menjaga kukang di alam liar sama artinya dengan menjaga fungsi ekologis hutan, yang pada akhirnya berkontribusi pada kesejahteraan manusia \autocite{iar2024,neprimate2024}.
+
+Namun demikian, upaya konservasi dan pemantauan kukang sering mengalami keterbatasan signifikan. Metode saat ini, seperti observasi lapangan maupun pelacakan manual rentan terhadap bias dan sangat bergantung pada ketersediaan sumber daya manusia serta waktu. Selain itu, sifat kukang yang nokturnal, aktif pada malam hari, dan sering bersembunyi di kanopi yang tinggi membuat proses pemantauan dan dokumentasi menjadi semakin sulit.
+
+Dalam beberapa tahun terakhir, kemajuan teknologi informasi, khususnya visi komputer (computer vision) dan kecerdasan buatan (artificial intelligence), menawarkan peluang baru. Metode seperti deep learning, termasuk Convolutional Neural Networks (CNN), telah terbukti mampu mengenali pola visual kompleks seperti mendeteksi wajah dan ekspresi pada manusia maupun hewan \autocite{lecun2015deep}. Namun, penerapan teknologi tersebut pada primata endemik seperti Kukang Sunda masih sangat minim sehingga potensi teknologi ini dalam konservasi hewan liar belum banyak dimanfaatkan.
+
+Melalui tugas akhir ini, penulis bermaksud mengisi kekosongan tersebut dengan merancang dan mengimplementasikan sistem deteksi serta pengenalan ekspresi wajah pada Kukang Sunda. Dengan pendekatan berbasis deep learning, diharapkan sistem ini dapat menyediakan data objektif dan real-time mengenai kondisi fisiologis dan emosional kukang, sehingga memberi dukungan nyata bagi upaya rehabilitasi, pelepasliaran, dan pemantauan populasi.
+
+Pendekatan ini bukan sekadar bersifat teknis atau akademik: ia juga mencerminkan komitmen terhadap nilai kemanusiaan dan ekologis, yaitu menghargai kehidupan hewan, menjaga keberlangsungan biodiversitas, dan mewujudkan ekosistem yang sehat sekaligus bermanfaat bagi manusia. Dengan demikian, penelitian ini berkontribusi pada upaya konservasi yang berkelanjutan dan holistik dengan menghubungkan ilmu teknologi informasi dengan ekologi dan kesejahteraan masyarakat.
 % --- Rumusan Masalah ---
 \section{Rumusan Masalah}
-Rumusan Masalah berisi masalah utama yang dibahas dalam tugas akhir. Rumusan masalah yang baik memiliki struktur sebagai berikut:
+Upaya konservasi Kukang Sunda masih menghadapi tantangan signifikan, terutama dalam hal pengumpulan dan analisis data perilaku secara objektif. Proses observasi yang masih dilakukan secara manual membuat akurasi pemantauan kondisi kesehatan kukang sangat bergantung pada pengalaman pengamat, sehingga rentan terhadap \textit{human error} dan inkonsistensi. Selain itu, belum tersedianya dataset ekspresi wajah kukang yang terdigitalisasi menghambat penerapan teknologi kecerdasan buatan dalam mendeteksi kondisi stres atau kesehatan secara otomatis. Minimnya sistem pemantauan berbasis Computer Vision yang mampu bekerja stabil pada kondisi lapangan, seperti variasi pencahayaan di habitat atau pusat rehabilitasi juga menjadi kelemahan yang perlu diatasi.
+
+Rumusan masalah dalam tugas akhir ini adalah sebagai berikut:
+
 \begin{enumerate}
-\item	Pokok persoalan dari kondisi atau situasi yang ada saat ini. Dengan kata lain, jelaskan kelemahan atau kekurangan dari kondisi, situasi, atau solusi yang dijelaskan pada latar belakang. Ini merupakan pokok rumusan masalah.
-\item	Elaborasi lebih lanjut urgensi penyelesaian masalah tersebut (mengapa penting untuk diselesaikan dan akibat yang dapat terjadi jika tidak diselesaikan).
-\item	Usulan singkat terkait dengan solusi yang ditawarkan untuk menyelesaikan persoalan.
-Penting untuk diperhatikan bahwa persoalan yang dideskripsikan pada subbab ini akan dipertanggungjawabkan di bab Evaluasi (apakah terselesaikan atau tidak).
+    \item Bagaimana cara mendigitalisasi dataset ekspresi wajah kukang sunda terkait responnnya terhadap kondisi lingkungan?
+
+    \item  Bagaimana cara merancang dan mengembangkan model Artificial Intelligence berbasis Computer Vision yang mampu mendeteksi dan mengenali ekspresi wajah kukang di berbagai kondisi pencahayaan secara otomatis?
+
 \end{enumerate}
 
 % --- Tujuan ---
 \section{Tujuan}
-Tuliskan tujuan utama dan/atau tujuan detail yang akan dicapai dalam pelaksanaan tugas akhir. Fokuskan pada hasil akhir yang ingin diperoleh setelah tugas akhir diselesaikan, terkait dengan penyelesaian persoalan pada rumusan masalah. Penting untuk diperhatikan bahwa tujuan yang dideskripsikan pada subbab ini akan dipertanggungjawabkan di akhir pelaksanaan tugas akhir apakah tercapai atau tidak. Tuliskan kriteria keberhasilan tugas akhir ini.
+Tujuan utama dari pelaksanaan tugas akhir ini adalah merancang, mengembangkan, dan mengimplementasikan sebuah model Artificial Intelligence berbasis Computer Vision yang mampu:
+\begin{enumerate}
+    \item Mendigitalisasi dataset ekspresi wajah kukang terkait respon terhadap lingkungan. Dataset ini dapat digunakan untuk penelitian lain yang berkaitan dengan primata.
+    \item Mendeteksi dan mengenali ekspresi wajah primata untuk memantau kondisi kesehatan dan perilaku mereka.
+\end{enumerate}
+
+Secara spesifik, tujuan yang ingin dicapai adalah:
+
+\begin{enumerate}
+    \item Menghasilkan \textit{dataset} citra wajah Kukang Sunda dari rekaman \textit{night vision} yang telah dianotasi dan divalidasi label ekspresinya (seperti posisi mata, telinga, dan mulut) berdasarkan validasi perilaku dari mitra konservasi.
+    \item Membangun model \textit{Computer Vision} yang mampu mendeteksi wajah kukang dan mengklasifikasikan ekspresinya dengan tingkat akurasi yang terukur, dengan fokus pada fitur wajah seperti perubahan bentuk dan gerak mulut, mata, dan telinga.
+    \item Melakukan validasi kinerja model menggunakan data uji untuk memastikan sistem dapat berfungsi pada kondisi pencahayaan minim sesuai lingkungan habitat kukang.
+\end{enumerate}
+
+Kriteria keberhasilan tugas akhir ini adalah terbentuknya model yang mampu mengenali ekspresi wajah kukang pada data uji dengan metrik evaluasi (seperti akurasi, presisi, dan \textit{recall}) yang memadai untuk kebutuhan pemantauan awal.
 
 % --- Batasan Masalah ---
 \section{Batasan Masalah}
-Tuliskan batasan-batasan yang diambil dalam pelaksanaan tugas akhir. Batasan ini dapat dihindari (bersifat opsional, tidak perlu ada) jika topik atau judul tugas akhir dibuat cukup spesifik.
+Untuk menjaga fokus pengerjaan, pelaksanaan tugas akhir ini memiliki batasan-batasan sebagai berikut:
+
+\begin{enumerate}
+    \item Data masukan yang digunakan berupa rekaman video atau citra digital dari kamera \textit{night vision} (inframerah/minim cahaya) yang diperoleh dari lingkungan konservasi.
+    \item Pelabelan ekspresi wajah (\textit{ground truth}) didasarkan pada panduan dari ahli primata/dokter hewan dari tim IPB dan UNPAD, tidak mencakup analisis klinis atau hormonal secara langsung oleh penulis.
+    \item Sistem yang dikembangkan berbasis video, belum mencakup implementasi \textit{real-time} penuh selama tugas akhir ini.
+    \item Penelitian hanya mencakup pengenalan ekspresi wajah kukang pada rekaman video dengan fokus yang terbatas pada bagian wajah yang terlihat jelas, tidak mencakup analisis saat wajah tidak terlihat karena kondisi gerak kukang yang tidak terprediksi.
+    \item Penelitian dilakukan pada kondisi lingkungan yang terkontrol dengan parameter pencahayaan dan struktur habitat tertentu, sehingga belum mencakup berbagai variasi kondisi lingkungan antar pusat rehabilitasi yang berbeda.
+    \item Penggunaan alat perekam terbatas pada spesifikasi tertentu yang ditentukan dalam penelitian ini, tidak mencakup pengujian dengan berbagai tipe atau spesifikasi alat perekam yang berbeda.
+    \item Penelitian hanya melibatkan individu kukang dengan kriteria kesehatan dan kondisi fisik tertentu sesuai standar etika penelitian, tidak mencakup individu dengan kondisi medis kompleks atau stres berat yang akan mempengaruhi validitas analisis.
+    \item Sistem yang dikembangkan hanya digunakan untuk menganalisis dan menyimpan rekaman video yang telah terlebih dahulu direkam, tidak mencakup sistem pemantauan real-time langsung dari kamera yang terintegrasi secara langsung dengan sistem pengambilan keputusan.
+\end{enumerate}
 
 % --- Metodologi Pengerjaan TA ---
 \section{Metodologi}
-Tuliskan semua tahapan yang akan dilalui selama pelaksanaan tugas akhir. Tahapan ini spesifik untuk menyelesaikan persoalan tugas akhir. Khusus untuk penyusunan proposal ini, jelaskan secara detail:
+Pelaksanaan tugas akhir ini mengacu pada kerangka kerja \textit{Systems Development Life Cycle} (SDLC) yang mencakup beberapa tahapan utama.
+
 \begin{enumerate}
-\item	Tahapan investigasi pengumpulan fakta di latar belakang untuk merumuskan masalah.
-\item	Langkah-langkah pencarian, pengelompokan, dan penapisan literatur atau sumber informasi untuk mengumpulkan informasi yang relevan tentang topik yang diangkat, termasuk teori (konsep atau teori apa saja yang perlu dicari), hal-hal yang telah dicapai oleh orang lain (cara mencari dan kata kuncinya), dan berbagai informasi pendukung, untuk mencari solusi terhadap masalah yang dibahas. Gunakan metodologi yang tepat dalam menggali informasi dan dokumentasikan prosesnya (termasuk rekaman wawancara atau survei) di dalam Lampiran, termasuk tautan ke video atau foto. Hasil penggalian informasi ini akan dijelaskan secara sistematis di Bab II Studi Literatur.
+    \item \textit{Planning} \newline 
+    Tahap ini dimulai dengan studi literatur mendalam mengenai teknik-teknik terkini dalam deteksi objek dan pengenalan ekspresi wajah pada hewan. Peneliti meninjau berbagai tantangan teknis dalam pemantauan satwa liar, terutama pada hewan nokturnal seperti Kukang Sunda yang memiliki perilaku bergerak tidak terprediksi dan sering berada pada kondisi pencahayaan rendah. Selain itu, dilakukan pula perumusan ruang lingkup penelitian, pembagian fokus antara deteksi dan klasifikasi, serta penyusunan rencana kerja dan penjadwalan kegiatan penelitian.
+    \item \textit{Requirement Analysis} \newline
+    Tahap ini mencakup analisis kebutuhan data, di mana peneliti mengidentifikasi sumber data yang relevan berupa video dan citra Kukang Sunda dari pusat rehabilitasi. Data yang dikumpulkan kemudian diseleksi berdasarkan kualitas visual, seperti keterlihatan wajah dan kejernihan citra. Selain itu dilakukan juga studi mengenai kebutuhan sistem dari sisi konservasi dan validasi perilaku/hormonal melalui koordinasi dengan mitra penelitian (IPB dan UNPAD).
+    \item \textit{System Design} \newline
+    Pada tahapan ini dilakukan perancangan arsitektur sistem deteksi ekspresi wajah yang mencakup modul pengambilan data video, modul deteksi wajah, modul ekstraksi fitur ekspresi, dan modul klasifikasi ekspresi. Tahap ini juga melibatkan perancangan struktur database untuk menyimpan dataset citra wajah kukang beserta anotasi label ekspresi yang telah divalidasi oleh tim IPB dan UNPAD.
+    \item \textit{Implementation \& Development} \newline
+    Tahap ini mencakup implementasi model deteksi wajah dan klasifikasi ekspresi berbasis \textit{Deep Learning} dan \textit{Computer Vision}, termasuk pengumpulan data video dari lokasi mitra dan penerapan teknik pra-pemrosesan citra. Dilakukan juga pelatihan model dengan dataset yang telah disiapkan untuk mengenali berbagai ekspresi wajah kukang (santai, stres, sakit).
+    \item \textit{Testing \& Validation} \newline
+    Tahapan ini melibatkan evaluasi kinerja model dengan metrik seperti akurasi, presisi, \textit{recall}, dan F1-score menggunakan data uji. Dilakukan pula validasi sistem di lokasi mitra untuk memastikan sistem dapat bekerja efektif dalam kondisi nyata dan memberikan hasil yang konsisten dengan data validasi hormonal dari UNPAD.
 \end{enumerate}

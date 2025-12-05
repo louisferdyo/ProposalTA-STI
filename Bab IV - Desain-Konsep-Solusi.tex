@@ -3,7 +3,46 @@
 % ==========================================
 \chapter{DESAIN KONSEP SOLUSI}
 \label{chap:desain-konsep-solusi}
-Ilustrasikan desain konsep solusi dalam bentuk model konseptual dan penjelasan secara ringkas, 
-beserta perbedaannya dengan sistem saat ini. Ilustrasi harus dapat dibandingkan (\textit{before} and \textit{after}). 
-Karena masih berupa proposal, bab ini hanya berisi gambar desain konsep solusi tersebut dan 
-penjelasan perbandingannya dengan gambar sistem yang ada saat ini (yang tergambar di awal Bab \ref{chap:analisis-masalah}).
+
+Bab ini menyajikan rancangan sistem dan arsitektur teknis yang diusulkan untuk menjawab kesenjangan penelitian yang telah diidentifikasi, khususnya terkait masalah data scarcity dan kualitas citra nokturnal. Desain solusi ini berfokus pada pembangunan sistem pemantauan kesejahteraan kukang yang bersifat otomatis, objektif, dan non-invasif.
+
+\section {Model Konseptual Sistem}
+Model konseptual sistem ini mengubah alur dari yang awalnya pengamatan dan pencatatan data dilakukan dengan serba manual oleh petugas menjadi sistem yang terotomatisasi berbasis Computer Vision dengan kemampuan klasifikasi ekspresi dan tingkat stres.
+
+Pendekatan yang diusulkan memanfaatkan teknologi Computer Vision dan Kecerdasan Buatan (AI) sebagai inti dari proses identifikasi ekspresi wajah kukang, dengan fokus pada fitur morfologi seperti telinga, mulut, dan mata. Metode ini dipilih karena sesuai dengan karakteristik kukang yang merupakan hewan nokturnal sehingga pengambilan data hanya dapat dilakukan saat kondisi gelap dan juga ekspresi wajahnya yang bersifat subtle.
+ 
+
+\subsection{Sistem Saat Ini (\textit{Before})}
+Model konseptual sistem saat ini digambarkan oleh Gambar \ref{fig:sistem_saat_ini}, di mana proses observasi dan penilaian kondisi satwa sepenuhnya dilakukan secara manual oleh petugas konservasi.
+
+\begin{figure}[H] % [htbp] adalah spesifikasi penempatan, [h]ere, [t]op, [b]ottom, [p]age
+    \centering
+    % Ganti 'nama_file_diagram_lama.png' dengan nama file diagram Anda yang sebenarnya
+    % Sesuaikan lebar (width) gambar agar sesuai dengan margin teks
+    \includegraphics[width=0.9\textwidth]{image/sistem as-is.drawio.png}
+    \label{fig:sistem_saat_ini} 
+    \caption{Model Konseptual Sistem Pemantauan Kukang Saat Ini (Observasi Manual)}
+\end{figure}
+Seperti penjelasan singkat diatas sistem pemantauan kondisi Kukang Sunda saat ini (\textit{As-Is}) masih alur kerja manual dan diskontinu yang diawali dengan pengamatan visual berkala oleh petugas konservasi. Proses ini melibatkan observasi perilaku satwa secara langsung, yang kemudian dilanjutkan dengan penilaian kondisi dan klasifikasi tingkat stres secara subjektif berdasarkan pengalaman petugas. Seluruh hasil observasi, penilaian, dan klasifikasi kondisi tersebut lantas dicatat secara manual ke dalam buku log atau formulir fisik sebagai tahap akhir dari sesi pemantauan yang dilakukan oleh petugas.
+
+Kelebihan utama dari metode observasi manual ini terletak pada biaya implementasi awal yang rendah serta kemampuan intuisi manusia untuk menangkap konteks situasional yang kompleks. Metode ini juga dapat mendeteksi penyakit, luka, dan kondisi-kondisi fisik lainnya yang berada diluar jangkauan sistem usulan. Namun, kelemahan sistem ini jauh lebih krusial: proses penilaian sangat rentan terhadap subjektivitas dan bias antar pengamat, sistem tidak dapat berjalan secara kontinu (24/7), dan rentan terhadap kesalahan akibat kelelahan manusia. Kekurangan-kekurangan ini, ditambah dengan inefisiensi pencatatan data fisik, secara kolektif meningkatkan risiko latensi deteksi terhadap tanda-tanda awal stres atau gangguan kesehatan pada kukang.
+
+\section{Arsitektur Sistem Usulan \textit{(After)}}
+Berdasarkan analisis kelemahan pada sistem observasi manual dan identifikasi kesenjangan teknis, sistem usulan ini dapat bekerja secara otomatis dalam pemantauan kesejahteraan Kukang Sunda yang otomatis, objektif, dan non-invasif.
+
+\begin{figure}[H] % [htbp] adalah spesifikasi penempatan, [h]ere, [t]op, [b]ottom, [p]age
+    \centering
+    % Ganti 'nama_file_diagram_baru.png' dengan nama file diagram Anda yang sebenarnya
+    % Sesuaikan lebar (width) gambar agar sesuai dengan margin teks
+    \includegraphics[width=0.9\textwidth]{image/sistem to-be.drawio.png} 
+    \caption{Model Konseptual Sistem Pemantauan Kukang Usulan (Otomatis Berbasis Computer Vision)}
+    \label{fig:sistem_usulan}
+\end{figure}
+Sistem usulan ini dirancang sebagai solusi otomatisasi \textit{end-to-end} yang dikembangkan secara kolaboratif dengan pembagian fokus teknis yang terstruktur. Alur pemrosesan data dimulai dengan akuisisi video dari kamera pada kandang Kukang Sunda, diikuti oleh ekstraksi \textit{frame} dan pra-pemrosesan citra (\textit{image enhancement}) untuk meningkatkan kualitas visual pada kondisi pencahayaan rendah. Tahapan awal ini, termasuk pengembangan model deteksi objek untuk melokalisasi keberadaan wajah kukang secara spesifik, merupakan lingkup pengerjaan penulis.
+
+Apabila wajah berhasil dideteksi, sistem melanjutkan ke proses \textit{cropping} dan normalisasi citra area wajah. Tahap ini dikerjakan secara bersama-sama (kolaboratif) untuk memastikan kesesuaian input data antar-modul. Citra wajah yang telah dinormalisasi kemudian diteruskan ke model klasifikasi ekspresi dan logika evaluasi stres (\textit{Stress Evaluation Logic}), yang merupakan tanggung jawab rekan peneliti. Sinergi dari kedua bagian ini menghasilkan keluaran berupa indikator tingkat stres dan jenis ekspresi, memungkinkan pemantauan kesehatan mental satwa secara digital dan terstruktur.
+
+Kelebihan utama dari arsitektur sistem ini adalah kemampuannya untuk melakukan pemantauan secara kontinu (24/7) dan non-invasif, serta memberikan penilaian yang objektif dan terstandarisasi. Hal ini mengeliminasi bias subjektivitas pengamat dan mengatasi keterbatasan fisik petugas (seperti kelelahan). Selain itu, pendekatan modular yang memisahkan tanggung jawab pengembangan model deteksi dan klasifikasi memungkinkan optimalisasi yang lebih mendalam pada setiap tahapannya. Namun, tantangan utama sistem ini terletak pada ketergantungan tinggi terhadap kualitas citra input (terutama mode \textit{night vision}); resolusi rendah atau \textit{noise} tinggi berpotensi menyebabkan kegagalan pada tahap deteksi wajah yang menjadi pintu gerbang proses selanjutnya. Sistem ini juga menuntut sumber daya komputasi yang lebih besar dibandingkan metode manual, serta akurasi akhir yang sangat bergantung pada performa kedua model yang saling terintegrasi.
+
+\section{Perbandingan Sistem Saat Ini dan Usulan}
+\input{table/perbandingan-sistem.tex}

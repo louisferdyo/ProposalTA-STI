@@ -6,19 +6,138 @@
 % ============================================================================================
 \chapter{ANALISIS MASALAH}
 \label{chap:analisis-masalah}
-\section{Analisis Kondisi Saat Ini}
-Menurut \textcite{laudon2020}, gambarkan terlebih dahulu model konseptual sistem yang ada saat ini. Model konseptual ini berisi berbagai komponen atau subsitem dan interaksi antarsubsistem tersebut. Setelah itu, berikan penjelasan tentang masalah yang ada pada sistem tersebut. Paragraf berikut berisi contoh penjabaran masalah sistem informasi fasilitas kesehatan untuk pasien \autocite{pressman2019}. 
-\section{Analisis Kebutuhan}
-\lipsum[4]
-\subsection{Identifikasi Masalah Pengguna}
-\lipsum[5]
-\subsection{Kebutuhan Fungsional}
-\lipsum[6]
-\subsection{Kebutuhan Nonfungsional}
-\lipsum[7]
 
-\section{Analisis Pemilihan Solusi}
-\subsection{Alternatif Solusi}
-\lipsum[8]
-\subsection{Analisis Penentuan Solusi}
-\lipsum[9]
+\section{Analisis Kondisi Saat Ini}
+
+Berdasarkan pengamatan terhadap proses rehabilitasi Kukang Sunda saat ini, teridentifikasi beberapa permasalahan utama yang mempengaruhi efektivitas pemantauan kesejahteraan satwa:
+
+\begin{enumerate}
+    \item Keterbatasan Metode Observasi Manual \\
+    Penilaian kondisi kesehatan dan perilaku kukang sangat bergantung pada keahlian subjektif petugas lapangan. Hal ini menyebabkan inkonsistensi data dan risiko kesalahan diagnosis, serta tidak memungkinkan dilakukan pemantauan 24 jam secara intensif tanpa mengganggu satwa.
+
+    \item Kendala Biologis dan Lingkungan \\
+    Sifat nokturnal kukang serta ekspresi wajahnya yang tidak mencolok (\textit{subtle}) dan sulit untuk diketahui menyulitkan pengamatan visual langsung oleh manusia, terutama pada malam hari saat satwa berada pada puncak aktivitasnya.
+
+    \item Kesenjangan Teknologi \\
+    Kamera pengawas yang tersedia di fasilitas rehabilitasi memiliki resolusi rendah dan/atau kualitas citra \textit{low-light} yang buruk. Keterbatasan resolusi ini menyebabkan fitur-fitur wajah kukang yang penting seperti posisi telinga, mata, dan mulut sulit dibedakan dan diekstraksi oleh model komputasi. Selain itu, belum tersedianya dataset referensi wajah kukang yang terstandarisasi untuk kondisi \textit{low-light} menjadi penghalang utama dalam pengembangan sistem deteksi otomatis.
+
+    \item Urgensi Peningkatan Efisiensi \\
+    Dengan meningkatnya kasus perdagangan ilegal dan keterbatasan sumber daya manusia (SDM), metode tradisional dinilai tidak lagi memadai untuk menangani volume kukang yang membutuhkan perawatan medis intensif. Dibutuhkan inovasi teknologi non-invasif untuk mempercepat deteksi stres dan tanda-tanda gangguan kesehatan lainnya.
+\end{enumerate}
+
+\section{Analisis Kebutuhan}
+Berdasarkan kondisi saat ini dan permasalahan yang teridentifikasi, perlu dilakukan analisis kebutuhan yang mencakup identifikasi masalah pengguna, kebutuhan fungsional, serta kebutuhan non-fungsional dari sistem yang akan dikembangkan. Analisis ini dilakukan secara kolaboratif antara tim ITB (teknologi), IPB (perilaku dan ground truth), dan UNPAD (hormonal dan fisiologis).
+
+\subsection{Identifikasi Masalah Pengguna}
+Permasalahan dalam pemantauan Kukang Sunda tidak hanya bersifat teknis, tetapi juga berdampak langsung pada pemangku kepentingan yang terlibat dalam proses rehabilitasi dan konservasi. Identifikasi masalah spesifik berdasarkan peran pengguna adalah sebagai berikut:
+
+\begin{enumerate}
+    \item \textbf{Petugas Konservasi (\textit{Conservation Officers})} \\
+    Petugas lapangan bertanggung jawab atas pemantauan harian, pemberian pakan, dan pembersihan kandang. Masalah utama yang dihadapi meliputi:
+    \begin{itemize}
+        \item \textbf{Beban Operasional Tinggi:} Peningkatan jumlah kukang sitaan tidak sebanding dengan jumlah petugas, sehingga pemantauan intensif pada setiap individu menjadi sulit dilakukan. Metode manual yang ada saat ini sangat memakan waktu (\textit{time-consuming}) dan tidak praktis untuk skala populasi yang besar.
+        \item \textbf{Subjektivitas Pengamatan:} Penilaian perilaku (seperti tingkat aktivitas atau nafsu makan) rentan terhadap bias antar-pengamat (\textit{inter-observer error}), di mana penilaian satu petugas bisa berbeda dengan petugas lainnya.
+        \item \textbf{Keterbatasan Pengawasan Malam Hari:} Sifat nokturnal kukang mengharuskan pengawasan dilakukan pada malam hari. Keterbatasan visibilitas dan kelelahan manusia menurunkan kewaspadaan petugas terhadap tanda-tanda anomali perilaku.
+    \end{itemize}
+    
+    \item \textbf{Dokter Hewan (\textit{Veterinarians})} \\
+    Tim medis berfokus pada kesehatan fisik, fisiologis, dan kesiapan rilis satwa. Kendala spesifik yang dihadapi adalah:
+    \begin{itemize}
+        \item \textbf{Keterbatasan Diagnosa Jarak Jauh:} Kamera CCTV yang ada saat ini umumnya memiliki resolusi rendah dan kualitas \textit{night vision} yang buruk. Akibatnya, fitur-fitur wajah penting untuk diagnosa klinis—seperti \textit{orbital tightening} (penyipitan mata), posisi telinga, atau kondisi mulut—menjadi kabur dan tidak dapat dianalisis dari rekaman video.
+        \item \textbf{Dilema Metode Invasif:} Pemeriksaan fisik secara langsung (\textit{handling}) sering kali memicu respons stres fisiologis akut hingga risiko cedera pada hewan. Dokter hewan membutuhkan metode pemantauan non-invasif yang mampu memberikan data objektif mengenai tingkat stres tanpa perlu menangkap hewan tersebut.
+        \item \textbf{Deteksi Dini yang Terhambat:} Tanda-tanda klinis pada kukang sering kali bersifat subtil. Tanpa bantuan teknologi yang mampu mendeteksi perubahan mikro pada wajah atau postur, intervensi medis sering kali terlambat dilakukan.
+    \end{itemize}    
+    
+    \item \textbf{Peneliti Primata (\textit{Primate Researchers})} \\
+    Peneliti membutuhkan data yang akurat dan terstandarisasi untuk studi perilaku dan konservasi jangka panjang. Masalah yang dihadapi meliputi:
+    \begin{itemize}
+        \item \textbf{\textit{Observer Effect}:} Kehadiran peneliti manusia secara fisik di lokasi observasi dapat mengubah perilaku alami hewan yang sedang diamati.
+        \item \textbf{Kelangkaan Data Terstandarisasi (\textit{Data Scarcity}):} Belum adanya dataset publik untuk ekspresi wajah primata nokturnal menghambat pengembangan studi komparatif. Sebagian besar data jangka panjang sulit diintegrasikan karena perbedaan metode identifikasi manual yang digunakan antar-penelitian.
+        \item \textbf{Inefisiensi Pengumpulan Data:} Pengumpulan data etogram secara manual sangat lambat dan rentan kesalahan, membatasi volume data yang dapat dianalisis untuk memahami pola perilaku spesies secara komprehensif.
+    \end{itemize}
+\end{enumerate}
+\subsection{Kebutuhan Fungsional}
+Sistem yang akan dikembangkan harus memiliki fungsionalitas sebagai berikut:
+\input{table/func-req.tex}
+
+\subsection{Kebutuhan Non-fungsional}
+Selain kebutuhan fungsional, sistem juga harus memenuhi beberapa kebutuhan non-fungsional:
+\input{table/nonfunc-req.tex}
+
+\section{Analisis Penentuan Solusi}
+\label{sec:analisis_penentuan_solusi}
+
+Analisis penentuan solusi dilakukan untuk memilih pendekatan terbaik dalam meningkatkan efektivitas pemantauan kondisi Kukang Sunda, terutama dalam mendeteksi ekspresi wajah secara otomatis dan non-invasif. Proses pemilihan dilakukan dengan membandingkan empat alternatif solusi menggunakan metode pembobotan berdasarkan kriteria evaluasi yang relevan dengan kebutuhan lapangan.
+
+\subsection{Penentuan Kriteria Evaluasi}
+Kriteria yang digunakan untuk menilai setiap alternatif solusi dijabarkan pada Tabel \ref{tab:kriteria_evaluasi} berikut:
+
+\begin{table}[H]
+\centering
+\caption{Kriteria Evaluasi dan Pembobotan}
+\label{tab:kriteria_evaluasi}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{@{}l c X@{}}
+\toprule
+\textbf{Kriteria} & \textbf{Bobot} & \textbf{Penjelasan} \\ 
+\midrule
+Akurasi \& Objektivitas & 0.30 & Kemampuan sistem mengurangi subjektivitas dan menghasilkan analisis ekspresi yang konsisten dan akurat. \\ 
+Efisiensi Waktu & 0.20 & Kecepatan solusi dalam menghasilkan informasi dan mendukung pemantauan \textit{real-time}. \\ 
+Keamanan Satwa (Non-Invasif) & 0.20 & Tingkat keamanan dan kenyamanan kukang, menghindari stres tambahan akibat interaksi fisik. \\ 
+Biaya Implementasi & 0.15 & Tingkat biaya awal dan biaya pemeliharaan jangka panjang. \\ 
+Kesesuaian dengan Kondisi Lapangan & 0.15 & Kesesuaian solusi dengan perilaku nokturnal kukang dan kondisi infrastruktur pusat rehabilitasi. \\ 
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Penilaian Alternatif Solusi}
+Berdasarkan kriteria di atas, dilakukan penilaian terhadap empat alternatif solusi (AS). Hasil pembobotan disajikan dalam Tabel dibawah.
+
+\begin{table}[H]
+\centering
+\caption{Matriks Penilaian Alternatif Solusi}
+\label{tab:penilaian_alternatif}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}l c c c c c c@{}}
+\toprule
+\textbf{Alternatif Solusi} & \textbf{Akurasi} & \textbf{Efisiensi} & \textbf{Keamanan} & \textbf{Biaya} & \textbf{Kesesuaian} & \textbf{Skor Total} \\
+& (0.30) & (0.20) & (0.20) & (0.15) & (0.15) & \\ 
+\midrule
+AS01 – Observasi Manual & 2 & 2 & 4 & 4 & 2 & 2.55 \\ 
+AS02 – Sensor Fisiologis (\textit{Wearable}) & 4 & 3 & 2 & 2 & 2 & 2.65 \\ 
+AS03 – Pemantauan Video Tanpa AI & 3 & 3 & 5 & 4 & 3 & 3.55 \\ 
+\textbf{AS04 – Sistem Deteksi Ekspresi Wajah Berbasis AI} & \textbf{5} & \textbf{5} & \textbf{5} & \textbf{3} & \textbf{5} & \textbf{4.70} \\ 
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\noindent \textbf{Contoh Perhitungan untuk AS04:}
+
+\subsection{Hasil Analisis}
+Berdasarkan hasil pembobotan pada matriks keputusan di atas, diperoleh analisis sebagai berikut:
+\begin{enumerate}
+    \item \textbf{AS04 (Sistem Deteksi Ekspresi Wajah Berbasis AI \& Computer Vision)} memperoleh skor tertinggi dengan total \textbf{4.70}, mengungguli alternatif solusi lainnya secara signifikan.
+    \item Solusi ini tidak hanya memenuhi kebutuhan prioritas utama (akurasi dan objektivitas), tetapi juga menjamin keamanan satwa (non-invasif) serta mampu bekerja secara \textit{real-time} pada lingkungan rendah cahaya (\textit{low-light}).
+\end{enumerate}
+
+\subsection{Keputusan Solusi yang Dipilih}
+Berdasarkan analisis pembobotan yang telah dilakukan, solusi yang dipilih untuk dikembangkan dalam penelitian ini adalah \textbf{AS04}, yaitu:
+
+\begin{quote}
+\textbf{Sistem Deteksi dan Pengenalan Ekspresi Wajah Kukang Berbasis AI \& Computer Vision}
+\end{quote}
+
+Solusi ini dipilih karena alasan-alasan berikut:
+\begin{enumerate}
+    \item \textbf{Non-invasif:} Tidak menyebabkan stres pada satwa karena tidak memerlukan kontak fisik, sangat sesuai dengan karakter kukang yang sensitif.
+    \item \textbf{Otomatisasi 24/7:} Dapat berjalan secara kontinu mengatasi keterbatasan jumlah SDM petugas di lapangan.
+    \item \textbf{Akurasi Tinggi:} Memanfaatkan model \textit{Deep Learning} modern untuk meminimalkan subjektivitas penilaian manusia.
+    \item \textbf{Efisiensi Biaya Jangka Panjang:} Meskipun investasi awal lebih tinggi dibanding observasi manual, solusi ini lebih hemat biaya operasional jangka panjang.
+    \item \textbf{Dukungan Lingkungan Nokturnal:} Terintegrasi dengan kamera inframerah (\textit{Night Vision}) yang sesuai dengan habitat alami kukang.
+    \item \textbf{Kualitas Data:} Menghasilkan data yang objektif, terstandardisasi, dan dapat didokumentasikan untuk keperluan penelitian lanjutan.
+\end{enumerate}
+
+Dengan demikian, AS04 ditetapkan sebagai pilihan terbaik untuk meningkatkan efektivitas konservasi dan pemantauan Kukang Sunda secara berkelanjutan.
+
+

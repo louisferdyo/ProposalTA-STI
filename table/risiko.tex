@@ -1,0 +1,19 @@
+\begin{table}[H]
+\centering
+\caption{Analisis Risiko dan Strategi Mitigasi}
+\label{tab:analisis_risiko}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{|l|X|X|}
+\hline
+\textbf{Kategori Risiko} & \textbf{Identifikasi Masalah} & \textbf{Strategi Mitigasi} \\ 
+\hline
+\textbf{Data} & \textbf{Kelangkaan Data (\textit{Data Scarcity}):} Jumlah sampel video kukang yang berkualitas mungkin sangat terbatas. & Menerapkan teknik augmentasi data sintetik (rotasi, \textit{mixup}, \textit{mosaic}) dan menggunakan \textit{Transfer Learning} dari model yang dilatih pada dataset wajah hewan lain. \\ 
+\hline
+\textbf{Kualitas Citra} & \textbf{Fitur Wajah Tidak Terlihat:} Pada kondisi \textit{night vision} ekstrem, fitur mata/mulut mungkin tertutup bayangan atau \textit{noise}. & Penerapan algoritma CLAHE (\textit{Contrast Limited Adaptive Histogram Equalization}) atau sejenisnya secara wajib pada tahap \textit{preprocessing} untuk menonjolkan detail lokal. \\ 
+\hline
+\textbf{Subjektivitas} & \textbf{Ambiguitas Label:} Pakar mungkin memiliki perbedaan pendapat dalam melabeli ekspresi "stres" vs "normal". & Melakukan validasi silang antar pakar (minimal 3 pakar) dan menggunakan sistem \textit{voting} mayoritas untuk menentukan label \textit{ground truth} yang valid. \\ 
+\hline
+\textbf{Teknis} & \textbf{Beban Komputasi Tinggi:} Model terlalu berat untuk dijalankan pada perangkat laptop standar petugas. & Menggunakan arsitektur model yang ringan (\textit{lightweight}) seperti YOLOv8-Nano atau MobileNet, serta menyediakan opsi pemrosesan berbasis \textit{cloud}. \\ 
+\hline
+\end{tabularx}
+\end{table}

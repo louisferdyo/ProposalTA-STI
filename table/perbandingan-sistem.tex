@@ -1,0 +1,26 @@
+\begin{table}[H]
+\centering
+\caption{Perbandingan Sistem Saat Ini dan Sistem Usulan}
+\label{tab:perbandingan_sistem}
+\renewcommand{\arraystretch}{1} % Memberi jarak antar baris agar tidak terlalu padat
+% Definisi kolom: 
+% l = rata kiri (untuk parameter)
+% X = rata kiri, lebar otomatis (untuk deskripsi sistem)
+\begin{tabularx}{\textwidth}{|l|X|X|}
+\hline
+\textbf{Parameter} & \textbf{Sistem Saat Ini (\textit{As-Is})} & \textbf{Sistem Usulan (\textit{To-Be})} \\ 
+\hline
+\textbf{Metode Observasi} & Dilakukan secara manual melalui pengamatan visual langsung atau pemantauan monitor CCTV konvensional oleh petugas. & Dilakukan secara otomatis menggunakan algoritma \textit{Computer Vision} dan \textit{Deep Learning} untuk mendeteksi wajah dan ekspresi. \\ 
+\hline
+\textbf{Ketersediaan Waktu} & Bersifat diskontinu (berkala) mengikuti jadwal ronda atau jam kerja petugas, sehingga terdapat jeda waktu tanpa pengawasan. & Bersifat kontinu (24/7), sistem mampu memproses aliran data video tanpa henti baik siang maupun malam hari. \\ 
+\hline
+\textbf{Objektivitas Penilaian} & Subjektif, sangat bergantung pada pengalaman, tingkat kelelahan, dan interpretasi personal petugas lapangan. & Objektif dan terstandarisasi, penilaian didasarkan pada model klasifikasi yang konsisten terhadap setiap data input. \\ 
+\hline
+\textbf{Pencatatan Data} & Manual menggunakan buku log fisik atau formulir kertas, rentan hilang dan sulit untuk dianalisis tren jangka panjangnya. & Otomatis tersimpan ke dalam basis data digital (\textit{database}), mencakup log waktu, jenis ekspresi, dan rekaman video. \\ 
+\hline
+\textbf{Dampak pada Satwa} & Berisiko menimbulkan \textit{observer effect} (stres akibat kehadiran manusia) jika dilakukan observasi langsung di kandang. & Non-invasif, pemantauan dilakukan sepenuhnya dari jarak jauh tanpa interaksi fisik atau gangguan visual bagi satwa. \\ 
+\hline
+\textbf{Kecepatan Deteksi} & Memiliki latensi tinggi, gejala stres mungkin baru terdeteksi saat kondisi sudah memburuk atau saat jadwal pengecekan berikutnya. & Deteksi dini lebih cepat, sistem dapat mengidentifikasi perubahan ekspresi abnormal segera setelah video diproses. \\ 
+\hline
+\end{tabularx}
+\end{table}

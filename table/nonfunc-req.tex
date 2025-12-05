@@ -1,0 +1,29 @@
+\begin{table}[H]
+\centering
+\caption{Spesifikasi Kebutuhan Non-Fungsional Sistem}
+\label{tab:kebutuhan_nonfungsional}
+\renewcommand{\arraystretch}{0.85}
+% Definisi 3 kolom: l (rata kiri), p{2.5cm} (rata kiri, lebar tetap), X (rata kiri, auto-wrap)
+\begin{tabularx}{\textwidth}{|l|p{2.5cm}|X|}
+\hline
+\textbf{Kode} & \textbf{Kebutuhan Non-Fungsional} & \textbf{Deskripsi Kebutuhan} \\ 
+\hline
+NF01 & Kinerja (\textit{Performance}) & Sistem harus mampu memproses aliran data video dengan laju 15–30 \textit{frames per second} (FPS) dan menyelesaikan deteksi ekspresi dalam waktu kurang dari 1 detik per \textit{frame}. \\ 
+\hline
+NF02 & Keandalan (\textit{Reliability}) & Sistem harus mampu beroperasi secara stabil 24/7 dengan tingkat akurasi deteksi dan klasifikasi ekspresi minimal antara 85\% hingga 90\%. \\ 
+\hline
+NF03 & Skalabilitas (\textit{Scalability}) & Sistem harus dirancang untuk mengakomodasi penambahan jumlah \textit{feed} kamera dan ekspansi ukuran dataset pelatihan tanpa mengalami penurunan kinerja pemrosesan yang signifikan. \\ 
+\hline
+NF04 & Keamanan (\textit{Security}) & Sistem wajib menerapkan mekanisme keamanan data yang kuat, mencakup enkripsi penyimpanan data, otentikasi pengguna, dan proteksi terhadap akses yang tidak sah. \\ 
+\hline
+NF05 & Kemudahan Penggunaan (\textit{Usability}) & Antarmuka pengguna harus dirancang secara sederhana dan intuitif sehingga mudah dioperasikan oleh petugas konservasi yang tidak memiliki latar belakang teknis yang mendalam. \\ 
+\hline
+NF06 & Kompatibilitas (\textit{Compatibility}) & Sistem harus kompatibel dengan berbagai jenis kamera inframerah (\textit{IR/night vision}) yang tersedia dan fleksibel untuk diterapkan baik pada lingkungan \textit{server} lokal maupun komputasi awan (\textit{cloud}). \\ 
+\hline
+NF07 & Keterawatan (\textit{Maintainability}) & Sistem harus dibangun secara modular untuk mempermudah pemeliharaan, memungkinkan pembaruan model \textit{Artificial Intelligence} (AI) secara independen, dan memfasilitasi pelatihan ulang (\textit{retraining}) model. \\ 
+\hline
+NF08 & Portabilitas (\textit{Portability}) & Sistem harus dapat dijalankan pada lingkungan perangkat keras yang beragam, seperti komputer \textit{desktop}, unit \textit{server}, atau perangkat untuk pemantauan \textit{mobile}. \\ 
+\hline
+\bottomrule
+\end{tabularx}
+\end{table}

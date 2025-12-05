@@ -1,0 +1,30 @@
+% File: table/func-req.tex
+\begin{table}[H]
+\centering
+\caption{Spesifikasi Kebutuhan Fungsional Sistem}
+\label{tab:kebutuhan_fungsional}
+\renewcommand{\arraystretch}{0.95}
+% Definisi 3 kolom: l (rata kiri), l (rata kiri), X (rata kiri, auto-wrap)
+\begin{tabularx}{\textwidth}{|l|p{2.5cm}|X|}
+\hline
+\textbf{Kode} & \textbf{Kebutuhan Fungsional} & \textbf{Deskripsi Kebutuhan} \\ 
+\hline
+F01 & Deteksi Wajah Kukang & Sistem mampu melokalisasi area wajah Kukang Sunda (\textit{Nycticebus coucang}) secara akurat dalam berbagai variasi intensitas cahaya, termasuk pada kondisi minim cahaya (\textit{low-light}) menggunakan citra inframerah. \\ 
+\hline
+F02 & Klasifikasi Ekspresi Wajah & Sistem dapat mengklasifikasikan status ekspresi wajah ke dalam kategori indikator kesejahteraan yang telah ditentukan, meliputi: santai (netral), stres, takut, agresif, dan tidak responsif. \\ 
+\hline
+F03 & Ekstraksi Fitur Wajah & Sistem mampu melakukan pelacakan (\textit{tracking}) otomatis pada fitur wajah kunci (seperti mata, telinga, dan mulut) untuk menganalisis perubahan morfologis yang berkaitan dengan ekspresi. \\ 
+\hline
+F04 & Pemantauan Berkelanjutan & Sistem menyediakan kapabilitas pemantauan ekspresi secara kontinu (24/7) untuk mendukung observasi kondisi satwa secara \textit{real-time} maupun terjadwal. \\ 
+\hline
+F05 & Manajemen Arsip Data & Sistem secara otomatis menyimpan log hasil deteksi, rekaman video, penanda waktu (\textit{timestamp}), dan metadata terkait ke dalam basis data untuk keperluan audit dan evaluasi lanjutan. \\ 
+\hline
+F06 & Visualisasi Dasbor & Sistem memvisualisasikan hasil analisis data melalui antarmuka dasbor yang informatif, mencakup grafik tren perilaku, status terkini, dan representasi visual hasil deteksi ekspresi. \\ 
+\hline
+F07 & Manajemen Input/Output & Sistem mendukung fungsionalitas impor data video eksternal untuk analisis \textit{batch} serta ekspor hasil laporan analisis statistik dalam format standar yang dapat diunduh. \\ 
+\hline
+F08 & Kontrol Akses Pengguna & Sistem menerapkan mekanisme manajemen hak akses berbasis peran (\textit{Role-Based Access Control}) untuk membedakan otoritas antara petugas lapangan, administrator, dan peneliti. \\ 
+\hline
+\bottomrule
+\end{tabularx}
+\end{table}
