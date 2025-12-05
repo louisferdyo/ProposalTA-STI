@@ -1,6 +1,8 @@
 %! TEX program = xelatex
+% 
+% Versi 1.1
 %
-% Template Proposal Tugas Akhir
+% Template Proposal Tugas Akhir 
 % Program Studi Sistem dan Teknologi Informasi
 % Sekolah Teknik Elektro dan Informatika
 % Institut Teknologi Bandung
@@ -245,6 +247,7 @@
     }
 \end{center}
 \end{titlepage}
+\input{Halaman Judul.tex}
 
 
 
@@ -310,6 +313,7 @@
 %\end{tabular}
 
 
+\input{Halaman Pengesahan.tex}
 
 % -- Change page number style to roman ---
 \pagenumbering{roman}
@@ -319,43 +323,20 @@
 % DAFTAR ISI, TABEL, GAMBAR
 % ==========================================
 % --- DAFTAR ISI ---
-\makeatletter
-\renewcommand{\tableofcontents}{%
-  \clearpage
-  \thispagestyle{plain}% no header
-  \begin{center}
-    {\large\bfseries\MakeUppercase{\contentsname}\par}
-  \end{center}
-  \vskip 1em
-  \@starttoc{toc}%
-}
-\makeatother
-
-\newpage
-\renewcommand{\cfttoctitlefont}{\hfill\large\bfseries\MakeUppercase}
-\renewcommand{\cftaftertoctitle}{\hfill}
-\tableofcontents
-%\addcontentsline{toc}{chapter}{DAFTAR ISI}
+\input{Daftar Isi.tex}
 
 % --- DAFTAR GAMBAR ---
-\newpage
-\renewcommand{\cftloftitlefont}{\hfill\large\bfseries\MakeUppercase}
-\renewcommand{\cftafterloftitle}{\hfill}
-\listoffigures
-\addcontentsline{toc}{chapter}{DAFTAR GAMBAR}
+\input{Daftar Gambar.tex}
 
 % --- DAFTAR TABEL ---
-\newpage
-\renewcommand{\cftlottitlefont}{\hfill\large\bfseries\MakeUppercase}
-\renewcommand{\cftafterlottitle}{\hfill}
-\listoftables
-\addcontentsline{toc}{chapter}{DAFTAR TABEL}
+\input{Daftar Tabel.tex}
 
 % --- DAFTAR LISTING (ALGORITMA, PSEUDOCODE, SOURCE CODE) ---
 \newpage
 
 % \lstlistoflistings
 % \addcontentsline{toc}{chapter}{\lstlistlistingname}
+\input{Daftar Listing.tex}
 
 \mainmatter
 % --- FORMAT TAMPILAN JUDUL BAB, SUBBAB, JUDUL GAMBAR DAN TABEL ---
